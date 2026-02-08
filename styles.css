@@ -1,0 +1,263 @@
+/* =====================
+   CSS VARIABLES (TASK 1)
+===================== */
+:root {
+    --primary: #f472b6;     /* soft pink */
+    --accent: #fb7185;      /* warm rose */
+    --bg: #fff1f2;          /* blush background */
+    --text: #4a044e;
+    --radius: 16px;
+    --shadow: 0 10px 25px rgba(0,0,0,0.12);
+    --title-size: clamp(1.8rem, 4vw, 2.8rem);
+  }
+  
+  /* RESET */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+  }
+  
+  body {
+    background: var(--bg);
+    color: var(--text);
+  }
+  
+  /* =====================
+     HEADER (TASK 2)
+  ===================== */
+  .header {
+    position: sticky;
+    top: 0;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    box-shadow: var(--shadow);
+    z-index: 10;
+  }
+  
+  .logo {
+    font-weight: 800;
+    font-size: 1.4rem;
+    color: var(--accent);
+  }
+  
+  .header-actions {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .badge {
+    background: var(--accent);
+    color: white;
+    border-radius: 999px;
+    padding: 0.1rem 0.5rem;
+    font-size: 0.7rem;
+    margin-left: 0.3rem;
+  }
+  
+  /* =====================
+     BUTTONS (TASK 7)
+  ===================== */
+  .btn {
+    border: none;
+    padding: 0.6rem 1.1rem;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .btn--primary {
+    background: var(--primary);
+    color: white;
+  }
+  
+  .btn--ghost {
+    background: transparent;
+  }
+  
+  .btn--cart {
+    background: #ffe4e6;
+  }
+  
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+  }
+  
+  .btn--added {
+    background: #22c55e;
+    color: white;
+  }
+  
+  /* =====================
+     HERO (TASK 3)
+  ===================== */
+  .hero {
+    margin: 2rem;
+    padding: 3rem;
+    border-radius: var(--radius);
+    background: linear-gradient(135deg, #f472b6, #fb7185);
+    color: white;
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 1s ease;
+  }
+  
+  .hero::before {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    background: white;
+    border-radius: 50%;
+    top: -60px;
+    right: -60px;
+    opacity: 0.25;
+  }
+  
+  .hero h1 {
+    font-size: var(--title-size);
+    margin-bottom: 0.5rem;
+  }
+  
+  .hero p {
+    margin-bottom: 1.3rem;
+  }
+  
+  /* =====================
+     FILTER PILLS (TASK 4)
+  ===================== */
+  .filters {
+    display: flex;
+    gap: 0.6rem;
+    padding: 0 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .pill {
+    padding: 0.45rem 1.1rem;
+    border-radius: 999px;
+    border: 1px solid #f9a8d4;
+    background: white;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .pill:hover:not(.active),
+  .pill:focus-visible {
+    background: #fce7f3;
+  }
+  
+  .pill.active {
+    background: var(--primary);
+    color: white;
+  }
+  
+  /* =====================
+     PRODUCT GRID (TASK 5)
+  ===================== */
+  .products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+  }
+  
+  .product-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 1rem;
+    box-shadow: var(--shadow);
+    transition: 0.3s;
+    position: relative;
+  }
+  
+  .product-card:hover {
+    transform: scale(1.04);
+  }
+  
+  .product-card img {
+    width: 100%;
+    border-radius: var(--radius);
+    margin-bottom: 0.6rem;
+  }
+  
+  .price span {
+    text-decoration: line-through;
+    font-size: 0.85rem;
+    color: #9f1239;
+    margin-left: 0.3rem;
+  }
+  
+  .rating {
+    color: #f59e0b;
+    margin: 0.4rem 0;
+  }
+  
+  /* =====================
+     CARD VARIANTS (TASK 6)
+  ===================== */
+  .product-card.sale::before {
+    content: "Best Seller";
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: var(--accent);
+    color: white;
+    padding: 0.25rem 0.6rem;
+    border-radius: var(--radius);
+    font-size: 0.75rem;
+  }
+  
+  .product-card.low-stock::after {
+    content: "Limited!";
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background: #be123c;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius);
+    font-size: 0.7rem;
+  }
+  
+  .product-card[data-rating^="4.8"] {
+    outline: 2px solid #fb7185;
+  }
+  
+  /* =====================
+     RESPONSIVE (TASK 8)
+  ===================== */
+  @media (max-width: 640px) {
+    .header {
+      padding: 1rem;
+    }
+  
+    .hero {
+      margin: 1rem;
+      padding: 2rem;
+    }
+  
+    .btn {
+      padding: 0.45rem 0.9rem;
+    }
+  }
+  
+  /* =====================
+     ANIMATION
+  ===================== */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
